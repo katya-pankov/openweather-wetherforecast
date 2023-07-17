@@ -1,0 +1,232 @@
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  /* background: rgb(179, 203, 249); */
+  background: radial-gradient(circle, rgba(174, 197, 245, 1) 0%, rgba(122, 162, 249, 1) 55%);
+  height: 100%;
+
+
+}
+
+.digits {
+  font-family: 'Anton', sans-serif;
+  font-size: 100px;
+  color: #1f2d3789;
+  text-shadow: 0 0 8px rgba(39, 39, 39, 0.3);
+  padding: 0;
+
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.outer-container {
+  position: relative;
+  height: 100%;
+}
+
+
+.wrapper {
+  height: 100vh;
+  margin: 0 auto;
+} 
+
+.opacity {
+  background-color: rgba(252, 252, 252, 0.098);
+}
+
+.small-font {
+  font-size: 12px;
+}
+
+.medium-font {
+  font-size: 16px !important;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #edf1fbad;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  background-color: transparent;
+  font-size: 16px;
+  color: #5B5B5B;
+}
+
+.search-button {
+  background-color: #222d40ae;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.weather-word {
+  font-size: 48px;
+  color: #191616;
+  /* text-transform: uppercase; */
+  font-family: 'Montserrat', sans-serif;
+  -webkit-text-stroke-color: white;
+  text-shadow: 0 0 8px rgba(39, 39, 39, 0.3);
+}
+
+.forecast-word {
+  font-size: 38px;
+  color: rgb(25, 22, 22);
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-text-stroke-color: white;
+  text-shadow: 0 0 8px rgba(39, 39, 39, 0.3);
+}
+
+.search {
+  display: none;
+}
+
+#weather-icon-large {
+  height: 220px;
+}
+
+#time {
+  font-size: 25px;
+  color: rgb(242, 240, 240);
+  text-shadow: 0 0 8px rgba(39, 39, 39, 0.3);
+}
+
+.hourly p {
+  font-size: 14px;
+  color: rgb(242, 240, 240);
+  text-shadow: 0 0 8px rgba(39, 39, 39, 0.3);
+}
+
+#feelsLike, #sunrise, #sunset, #wind-n {
+  font-size: 16px;
+  color: rgb(242, 240, 240);
+  text-shadow: 0 0 8px rgba(39, 39, 39, 0.3);
+}
+
+#todayCondition {
+  
+  font-size: 28px;
+  /* line-height: 1; */
+  font-weight: 800;
+  background: linear-gradient(45deg, #fafbe9, #ffad3b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(39, 39, 39, 0.3);
+  margin-top: -25px;
+  padding-left: 3px;
+}
+
+[data-weather-day]:hover {
+  color: white;
+  background: linear-gradient(45deg, #2e3849b6, #1f2f3fae);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-color: #222d40ae !important;
+
+}
+
+
+.fd-row {
+  display: none;
+  color: white;
+}
+
+.bg-custom {
+  background: linear-gradient(45deg, #222d40ae, #020406ae);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-color: #4b5f81ae !important;
+}
+
+.custom-blue-font {
+  color: #222d40ae !important;
+}
+
+.custom-yellow-font {
+  color: #fff8c0 !important;
+  text-shadow: 0 0 8px rgba(39, 39, 39, 0.3);
+}
+
+
+.summary-heading {
+  background: linear-gradient(45deg, #222d40ae, #020406ae);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#temp1, #temp2, #temp3, #temp4, #temp5, #temp6, #future-time-1, #future-time-2, #future-time-3, #future-time-4, #future-time-5, #future-time-6 {
+  font-size: 18px;
+}
+
+#future-time-1, #future-time-2, #future-time-3, #future-time-4, #future-time-5, #future-time-6 {
+  font-size: 16px;
+  font-weight: 600;
+  
+}
+
+.hourly-div {
+  max-width: 90px;
+}
+
+
+@media (min-width: 766px) and (max-width: 992px) {
+p.digits {
+    font-size: 75px !important;
+    padding-top: 12px;
+  }
+
+  #weather-icon-large {
+    height: 200px !important;
+  }
+
+
+}
+
+
+@media (max-width: 486px) {
+  #weather-icon-large {
+    height: 150px !important;
+  }
+
+
+  .digits {
+    font-size: 70px !important;
+  }
+  .search-container {
+    max-width: 100%;
+  }
+
+  .search-input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .search-button {
+    padding: 8px 12px;
+  }
+
+}
+
+@media (max-width: 992px) {
+  #time, #city, #dayOfWeek, #monthDayYear  {
+    font-size: 14px; 
+    font-weight: 600;
+  }
+
+}
+
+
+
+

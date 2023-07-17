@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/dfd354575f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@200;400;600;800&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/weather.js"></script>
+    <title>Weather App</title>
+</head>
+
+<body>
+    <main>
+        <div class="container outer-container">
+            <div class="wrapper px-5 rounded row">
+                <!-- Input field container -->
+                <section>
+                    <div class="col-12">
+                        <div id="weather"></div>
+                        <div class="text-center">
+                            <h1 class="custom-blue-font fw-bold pt-3">Weather Forecast</h1>
+                        </div>
+                        <div class="container  d-flex justify-content-center">
+                            <div class="search-container">
+                                <label for="zip" class="visually-hidden">Enter ZIP Code</label>
+                                <input type="text" class="search-input" id="zip" placeholder="Enter ZIP Code">
+                                <button type="submit" id="getWeather" class="search-button"><i class="fas fa-search"><span class="search">Search</span></i></button>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center mt-1 mb-0">
+                            <p id="city" class="custom-blue-font"></p>
+                        </div>
+                    </div>
+                </section>
+                <!-- Date and time container -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="mb-0 custom-blue-font fw-bold" id="dayOfWeek"></p>
+                            <p class="mb-0 custom-blue-font fw-bold" id="monthDayYear"></p>
+                        </div>
+                        <div class="col-6">
+                            <p class="m-0 text-end text-white custom-blue-font" id="time"></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Current wether conditions container -->
+                <div class="container">
+                    <div class="row">
+                        <!-- Main info with a large icon -->
+                        <div class="col-12 col-md-6">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-6 d-flex flex-column align-items-center">
+                                        <img src="" alt="" id="weather-icon-large">
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="digits mb-0 text-center text-lg-start"></p>
+                                        <p class="text-white text-center text-lg-start" id="todayCondition">
+                                        </p>
+                                    </div>
+                                    <div class="col-12 row row-cols-1 row-cols-md-2 d-flex justify-content-between opacity py-3 rounded-4 mt-4 mb-3">
+                                        <p class="custom-blue-font fw-bold">Feels Like <span id="feelsLike" class="ps-2"></span></p>
+                                        <p class="custom-blue-font fw-bold">Wind <span id="wind-n" class="ps-2"></span></p>
+                                        <p class="custom-blue-font fw-bold">Sunrise <span id="sunrise" class="ps-2"></span> </p>
+                                        <p class="custom-blue-font fw-bold">Sunset <span id="sunset" class="ps-2"></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Hourly container -->
+                        <div class="col-12 col-md-6  ">
+                            <div class="container pb-4">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2 class="fw-bold mb-2 custom-blue-font">Hourly</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container hourly opacity rounded-4 pb-4">
+                                <div class="row text-center row-cols-2 row-cols-sm-3 g-2 g-lg-3">
+                                    <div class="col">
+                                        <div class="container">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-12">
+                                                    <p class="custom-blue-font" id="future-time-1">
+                                                    </p>
+                                                </div>
+                                                <div class="bg-custom rounded-4 hourly-div col-12">
+                                                    <img src="" alt="current wether icon" height="44" id="today-icon-1" class="mt-3">
+                                                    <p id="today-description-1"></p>
+                                                    <p id="temp1" class="rounded-bottom mb-1"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="container">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-12">
+                                                    <p class="custom-blue-font" id="future-time-2"></p>
+                                                </div>
+                                                <div class="bg-custom rounded-4 hourly-div col-12">
+                                                    <img src="" alt="current wether icon" height="44" id="today-icon-2" class="mt-3">
+                                                    <p id="today-description-2"></p>
+                                                    <p id="temp2" class="rounded-bottom mb-1"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="container">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-12">
+                                                    <p class="custom-blue-font" id="future-time-3"></p>
+                                                </div>
+                                                <div class="bg-custom rounded-4 hourly-div col-12">
+                                                    <img src="" alt="current wether icon" height="44" id="today-icon-3" class="mt-3">
+                                                    <p id="today-description-3"></p>
+                                                    <p id="temp3" class="rounded-bottom mb-1"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="container">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-12">
+                                                    <p class="custom-blue-font" id="future-time-4"></p>
+                                                </div>
+                                                <div class="bg-custom rounded-4 hourly-div col-12">
+                                                    <img src="" alt="current wether icon" height="44" id="today-icon-4" class="mt-3">
+                                                    <p id="today-description-4"></p>
+                                                    <p id="temp4" class="rounded-bottom mb-1"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="container">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-12">
+                                                    <p class="custom-blue-font" id="future-time-5"></p>
+                                                </div>
+                                                <div class="bg-custom rounded-4 hourly-div col-12">
+                                                    <img src="" alt="current wether icon" height="44" id="today-icon-5" class="mt-3">
+                                                    <p id="today-description-5"></p>
+                                                    <p id="temp5" class="rounded-bottom mb-1"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="container">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-12">
+                                                    <p class="custom-blue-font" id="future-time-6"></p>
+                                                </div>
+                                                <div class="bg-custom rounded-4 hourly-div col-12">
+                                                    <img src="" alt="current wether icon" height="44" id="today-icon-6" class="mt-3">
+                                                    <p id="today-description-6"></p>
+                                                    <p id="temp6" class="rounded-bottom mb-1"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="custom-blue-font fw-bold mb-4 ps-3 mt-4">5-day Forecast</h2>
+                <!-- 5 day forecast container -->
+                <div class="container text-center">
+                    <div class="row row-cols-md-6 row-cols-3">
+                        <div class="col">
+                            <div class="opacity rounded" data-weather-day data-day-index="0">
+                                <p id="fw-date-1" class="mb-0 small-font fw-bold"></p>
+                                <img src="" alt="current wether icon" height="45" id="fw-img-1">
+                                <p id="fw-d-1" class="mb-0"></p>
+                                <p class="bg-custom rounded-bottom"><i class="fa-solid fa-caret-down"></i></p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="rounded opacity" data-weather-day data-day-index="1">
+                                <p id="fw-date-2" class="mb-0 small-font fw-bold"></p>
+                                <img src="" alt="current wether icon" height="45" id="fw-img-2">
+                                <p id="fw-d-2" class="mb-0"></p>
+                                <p class="bg-custom rounded-bottom white-highlight"><i class="fa-solid fa-caret-down"></i></p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="opacity rounded" data-weather-day data-day-index="2">
+                                <p id="fw-date-3" class="mb-0 small-font fw-bold"></p>
+                                <img src="" alt="current wether icon" height="45" id="fw-img-3">
+                                <p id="fw-d-3" class="mb-0"></p>
+                                <p class="bg-custom rounded-bottom"><i class="fa-solid fa-caret-down"></i></p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="opacity rounded" data-weather-day data-day-index="3">
+                                <p id="fw-date-4" class="mb-0 small-font fw-bold "></p>
+                                <img src="" alt="current wether icon" height="45" id="fw-img-4" class="m-0">
+                                <p id="fw-d-4" class="mb-0"></p>
+                                <p class="bg-custom rounded-bottom"><i class="fa-solid fa-caret-down"></i></p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="opacity rounded" data-weather-day data-day-index="4">
+                                <p id="fw-date-5" class="mb-0 small-font fw-bold"></p>
+                                <img src="" alt="current wether icon" height="45" id="fw-img-5">
+                                <p id="fw-d-5" class="mb-0"></p>
+                                <p class="bg-custom rounded-bottom"><i class="fa-solid fa-caret-down"></i></p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="opacity rounded" data-weather-day data-day-index="5">
+                                <p id="fw-date-6" class="mb-0 small-font fw-bold"></p>
+                                <img src="" alt="current wether icon" height="45" id="fw-img-6">
+                                <p id="fw-d-6" class="mb-0"></p>
+                                <p class="bg-custom rounded-bottom"><i class="fa-solid fa-caret-down"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of 5-day forecast -->
+                <!-- More details container -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 fd-row rounded" data-weather-data>
+                            <p id="fd-heading" class="ps-2"></p>
+                            <p id="fd-conditions"></p>
+                            <p id="fd-feelslike"></p>
+                            <p id="fd-sunrise"></p>
+                            <p id="fd-sunset"></p>
+                            <p id="fd-humidity"></p>
+                            <p id="fd-pressure"></p>
+                            <p id="fd-wind"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
