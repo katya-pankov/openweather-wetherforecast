@@ -4,16 +4,16 @@
 // Declare Variables
 const weatherContent = document.querySelector('#weather');
 const API_KEY = '3905334dd8b9f286b63fc25068997e36';
-const seattleApiUrl = fetch(`http://pro.openweathermap.org/data/2.5/forecast/daily?zip=98101&appid=${API_KEY}&units=imperial`);
-const seattleApiUrl2 = fetch(`http://api.openweathermap.org/data/2.5/weather?zip=98101&appid=${API_KEY}&units=imperial`);
-const seattleApiUrl3 = fetch(`http://pro.openweathermap.org/data/2.5/forecast/hourly?zip=98101&appid=${API_KEY}&units=imperial`);
+const seattleApiUrl = fetch(`https://pro.openweathermap.org/data/2.5/forecast/daily?zip=98101&appid=${API_KEY}&units=imperial`);
+const seattleApiUrl2 = fetch(`https://api.openweathermap.org/data/2.5/weather?zip=98101&appid=${API_KEY}&units=imperial`);
+const seattleApiUrl3 = fetch(`https://pro.openweathermap.org/data/2.5/forecast/hourly?zip=98101&appid=${API_KEY}&units=imperial`);
 
 
 // On first load display Seattle weathaer
 document.getElementById("zip").value = "98101";
 document.getElementById("city").innerHTML = '<i class="fa-sharp fa-solid fa-location-dot"></i> Seattle, US';
 // fetch daily forecast for Seattle
-fetch(`http://pro.openweathermap.org/data/2.5/forecast/daily?zip=98101&appid=${API_KEY}&units=imperial`)
+fetch(`https://pro.openweathermap.org/data/2.5/forecast/daily?zip=98101&appid=${API_KEY}&units=imperial`)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -38,7 +38,7 @@ fetch(`http://pro.openweathermap.org/data/2.5/forecast/daily?zip=98101&appid=${A
         console.log(`This error occurred: ${e}`);
     });
 // fetch current weather for Seattle
-fetch(`http://api.openweathermap.org/data/2.5/weather?zip=98101&appid=${API_KEY}&units=imperial`)
+fetch(`https://api.openweathermap.org/data/2.5/weather?zip=98101&appid=${API_KEY}&units=imperial`)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -48,7 +48,7 @@ fetch(`http://api.openweathermap.org/data/2.5/weather?zip=98101&appid=${API_KEY}
         console.log(`This error occurred: ${e}`);
     });
 // fetch hourly forecast for Seattle
-fetch(`http://pro.openweathermap.org/data/2.5/forecast/hourly?zip=98101&appid=${API_KEY}&units=imperial`)
+fetch(`https://pro.openweathermap.org/data/2.5/forecast/hourly?zip=98101&appid=${API_KEY}&units=imperial`)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -203,7 +203,7 @@ document.querySelector('#getWeather').addEventListener('click', () => {
     weatherContent.innerHTML = ''; // clear out prior results
     let zipCode = document.querySelector('#zip').value;
     // First call the geolocation API to get the latitude and longitude of the zip code
-    let url = `http://api.openweathermap.org/geo/1.0/zip?zip=${zipCode},US&appid=${API_KEY}`;
+    let url = `https://api.openweathermap.org/geo/1.0/zip?zip=${zipCode},US&appid=${API_KEY}`;
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -211,7 +211,7 @@ document.querySelector('#getWeather').addEventListener('click', () => {
             // Call the getLatLon function which returns an array
             const geo = getLatLon(data, zipCode);
             // Now get current weather data
-            url = `http://api.openweathermap.org/data/2.5/weather?lat=${geo[0]}&lon=${geo[1]}&appid=${API_KEY}&units=imperial`;
+            url = `https://api.openweathermap.org/data/2.5/weather?lat=${geo[0]}&lon=${geo[1]}&appid=${API_KEY}&units=imperial`;
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -222,7 +222,7 @@ document.querySelector('#getWeather').addEventListener('click', () => {
                     console.log(`This error occurred: ${e}`);
                 });
             // daily forecast data
-            url = `http://pro.openweathermap.org/data/2.5/forecast/daily?lat=${geo[0]}&lon=${geo[1]}&appid=${API_KEY}&units=imperial`;
+            url = `https://pro.openweathermap.org/data/2.5/forecast/daily?lat=${geo[0]}&lon=${geo[1]}&appid=${API_KEY}&units=imperial`;
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -247,7 +247,7 @@ document.querySelector('#getWeather').addEventListener('click', () => {
                     console.log(`This error occurred: ${e}`);
                 });
             // hourly forecast data
-            url = `http://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${geo[0]}&lon=${geo[1]}&appid=${API_KEY}&units=imperial`;
+            url = `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${geo[0]}&lon=${geo[1]}&appid=${API_KEY}&units=imperial`;
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
